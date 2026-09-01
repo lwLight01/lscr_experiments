@@ -1,0 +1,32 @@
+WINDOW_SIZE            = 64
+MAX_EPOCH_DRIFT        = 2
+MAX_SN_DRIFT           = 500
+MAX_NC_DRIFT           = 500
+MAX_RECOVERY_GAP       = 200
+MAX_NC_RECOVERY_GAP    = 200
+
+THETA_F                = 3
+STATE_CHECK_PERIOD     = 50
+STATE_CHECK_TIMEOUT    = 5.0
+SUSPICIOUS_THRESHOLD   = 3
+
+MSG_DATA               = 0x00
+MSG_STATE_CHECK        = 0x01
+MSG_SYNC_REQ           = 0x02
+MSG_SYNC_RESP          = 0x03
+MSG_SYNC_CONFIRM       = 0x04
+
+CLIENT_PORT            = 9001
+SERVER_PORT            = 9002
+LOOPBACK               = "127.0.0.1"
+CLIENT_ADDR            = "127.0.0.1"
+SERVER_ADDR            = "127.0.0.1"
+
+MESSAGES_PER_TRIAL     = 1000
+TRIALS_PER_SCENARIO    = 10
+MESSAGE_RATE           = 100
+
+ALL_SCENARIOS = [f"S{i}" for i in range(1, 13)]
+
+INTERRUPTION_START_MSG = 300
+INTERRUPTION_DURATION  = 5.0
