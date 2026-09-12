@@ -10,13 +10,11 @@ TOTAL=$((12 * 2 * TRIALS))
 COUNT=0
 FAILED=0
 
-echo "========================================================"
-echo " LSCR Experiment — Full Run"
+echo " LSCR Experiment"
 echo " Scenarios: 12 | Modes: 2 | Trials per: $TRIALS"
 echo " Total experiments: $TOTAL"
 echo " Estimated time: ~2–4 hours"
 echo " Started: $(date)"
-echo "========================================================"
 
 START_TIME=$(date +%s)
 
@@ -46,7 +44,6 @@ ELAPSED=$((END_TIME - START_TIME))
 MINUTES=$((ELAPSED / 60))
 
 echo ""
-echo "========================================================"
 echo " ALL EXPERIMENTS COMPLETE"
 echo " Finished: $(date)"
 echo " Total time: ${MINUTES} minutes"
@@ -55,6 +52,5 @@ echo " Failed:    $FAILED / $TOTAL"
 if [ $FAILED -gt 0 ]; then
     echo " Failed trials logged to: $PROJ_DIR/logs/failed_trials.csv"
 fi
-echo "========================================================"
 echo ""
 echo "Next step: cd $PROJ_DIR/analysis && python3 analyze.py"

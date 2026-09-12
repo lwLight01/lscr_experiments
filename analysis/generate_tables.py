@@ -144,6 +144,6 @@ if __name__ == "__main__":
     plot_detection_rate(df)
 
     print("\n[figures] All figures generated in results/")
-    print("          fig4_session_survival.png")
-    print("          fig5_recovery_latency.png")
-    print("          fig6_detection_rate.png")
+    print("fig4_session_survival.png")
+    print("fig5_recovery_latency.png")
+    print("fig6_detection_rate.png")

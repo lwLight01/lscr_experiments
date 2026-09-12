@@ -18,9 +18,7 @@ if [[ "$MODE" != "baseline" && "$MODE" != "lscr" ]]; then
     exit 1
 fi
 
-echo "========================================================"
 echo " Scenario: $SCENARIO | Mode: $MODE | Trial: $TRIAL"
-echo "========================================================"
 
 source "$PROJ_DIR/venv/bin/activate"
 
@@ -59,11 +57,11 @@ python3 "$SRC/client.py" \
 echo "[run] Client finished"
 
 wait $SERVER_PID
-echo "[run] Server finished"
+echo "Server finished"
 
 sudo kill $TCPDUMP_PID 2>/dev/null
 wait $TCPDUMP_PID 2>/dev/null
-echo "[run] Packet capture saved → $PCAP_FILE"
+echo "Packet capture saved → $PCAP_FILE"
 
 "$PROJ_DIR/scripts/teardown_netem.sh"
 
@@ -79,7 +77,6 @@ if [ "$SCENARIO" = "S10" ]; then
 fi
 
 echo ""
-echo "[run] ✓ Trial $TRIAL complete for $SCENARIO ($MODE)"
-echo "[run]   Results: $SERVER_CSV"
-echo "[run]            $CLIENT_CSV"
-echo "========================================================"
+echo "Trial $TRIAL complete for $SCENARIO ($MODE)"
+echo "Results: $SERVER_CSV"
+echo "$CLIENT_CSV"

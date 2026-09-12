@@ -10,9 +10,7 @@ fi
 
 sudo tc qdisc del dev $IFACE root 2>/dev/null
 
-echo "============================================"
 echo " Applying tc/netem for: $SCENARIO on $IFACE"
-echo "============================================"
 
 case $SCENARIO in
     S1)
@@ -73,4 +71,3 @@ esac
 echo ""
 echo "Current tc/netem rules on $IFACE:"
 sudo tc qdisc show dev $IFACE
-echo "============================================"

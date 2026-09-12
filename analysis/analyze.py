@@ -19,7 +19,7 @@ def load_all_summaries() -> pd.DataFrame:
 
     if not files:
         print(f"[ERROR] No summary files found in {RESULTS_DIR}")
-        print("        Run the experiment first with: sudo ./scripts/run_all.sh")
+        print("Run the experiment first with: sudo ./scripts/run_all.sh")
         sys.exit(1)
 
     for f in files:
@@ -32,12 +32,12 @@ def load_all_summaries() -> pd.DataFrame:
 
 def ci95(values) -> tuple:
 
-    n    = len(values)
-    mean = np.mean(values)
-    if n < 2:
+    n=len(values)
+    mean=np.mean(values)
+    if n<2:
         return mean, 0.0
-    se = stats.sem(values)
-    margin = se * stats.t.ppf(0.975, df=n - 1)
+    se=stats.sem(values)
+    margin=se * stats.t.ppf(0.975, df=n-1)
     return mean, margin
 
 def compute_table_4(df: pd.DataFrame):
@@ -72,9 +72,9 @@ def compute_table_5(df: pd.DataFrame):
         subset = lscr_df[lscr_df['scenario'] == scenario]
         if len(subset) == 0 or subset['recovery_attempts'].sum() == 0:
             continue
-        total_attempts   = subset['recovery_attempts'].sum()
-        success_rate     = subset['recovery_success_rate'].mean() * 100
-        avg_lat          = subset['avg_recovery_latency_ms'].mean()
+        total_attempts=subset['recovery_attempts'].sum()
+        success_rate=subset['recovery_success_rate'].mean() * 100
+        avg_lat=subset['avg_recovery_latency_ms'].mean()
         print(f"  {scenario:<8} {total_attempts:>10} {success_rate:>13.1f}% {avg_lat:>15.2f}")
 
     print("-" * 65)
@@ -90,20 +90,20 @@ def compute_table_6(df: pd.DataFrame):
 
     for mode in MODES:
         subset = df[df['mode'] == mode]
-        nonce_reuse  = subset['nonce_reuse_count'].sum()
-        replay_acc   = subset['replay_accepted'].sum()
-        invalid_acc  = subset['invalid_accepted'].sum()
-        unsafe_rec   = subset['unsafe_recoveries'].sum() if mode == 'lscr' else '-'
+        nonce_reuse=subset['nonce_reuse_count'].sum()
+        replay_acc=subset['replay_accepted'].sum()
+        invalid_acc=subset['invalid_accepted'].sum()
+        unsafe_rec=subset['unsafe_recoveries'].sum() if mode == 'lscr' else '-'
         print(f"  {mode:<10} {nonce_reuse:>12} {replay_acc:>15} "
               f"{invalid_acc:>16} {str(unsafe_rec):>12}")
 
     print("-" * 65)
-    nonce_total  = df['nonce_reuse_count'].sum()
-    replay_total = df['replay_accepted'].sum()
+    nonce_total=df['nonce_reuse_count'].sum()
+    replay_total=df['replay_accepted'].sum()
     if nonce_total == 0 and replay_total == 0:
-        print("  ✓ SECURITY PASS: No nonce reuse or replay acceptance detected")
+        print("SECURITY PASS: No nonce reuse or replay acceptance detected")
     else:
-        print(f"  ✗ SECURITY FAIL: nonce_reuse={nonce_total}, replay_accepted={replay_total}")
+        print(f"SECURITY FAIL: nonce_reuse={nonce_total}, replay_accepted={replay_total}")
 
 def compute_table_9(df: pd.DataFrame):
 
