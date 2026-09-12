@@ -3,7 +3,7 @@
 SCENARIO=${1:-"S1"}
 MODE=${2:-"baseline"}
 TRIAL=${3:-1}
-PROJ_DIR="$HOME/lscr-experiment"
+PROJ_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SRC="$PROJ_DIR/src"
 RESULTS="$PROJ_DIR/results"
 LOGS="$PROJ_DIR/logs"
