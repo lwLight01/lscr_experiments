@@ -39,7 +39,7 @@ source venv/bin/activate
 ### D. Install Python Dependencies
 Install the required packages for running the clients/servers and analyzing the data:
 ```bash
-pip install numpy pandas scipy matplotlib
+pip install numpy pandas scipy matplotlib psutil cryptography
 ```
 
 ---
