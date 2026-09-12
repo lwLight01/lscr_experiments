@@ -1,0 +1,22 @@
+{
+  "scenario": "S9",
+  "mode": "baseline",
+  "trial": 1,
+  "total_sent": 0,
+  "total_received_ok": 1000,
+  "total_received_fail": 0,
+  "avg_encrypt_latency_us": 0.0,
+  "nonce_reuse_count": 0,
+  "replay_accepted": 0,
+  "invalid_accepted": 0,
+  "divergence_detected": 0,
+  "divergence_actual": 0,
+  "recovery_attempts": 0,
+  "recovery_successes": 0,
+  "session_failures": 1,
+  "unsafe_recoveries": 0,
+  "false_recoveries": 0,
+  "avg_recovery_latency_ms": 0.0,
+  "detection_rate": 1.0,
+  "recovery_success_rate": 1.0
+}
