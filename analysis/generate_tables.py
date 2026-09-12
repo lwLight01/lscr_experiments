@@ -82,7 +82,7 @@ def plot_recovery_latency(df: pd.DataFrame):
         data.append(vals if len(vals) > 0 else [0])
 
     fig, ax = plt.subplots(figsize=(10, 6))
-    bp = ax.boxplot(data, labels=scenarios, patch_artist=True,
+    bp = ax.boxplot(data, tick_labels=scenarios, patch_artist=True,
                     medianprops=dict(color='black', linewidth=2))
     for patch in bp['boxes']:
         patch.set_facecolor(COLOR_LSCR)
